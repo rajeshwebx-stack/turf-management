@@ -1,16 +1,57 @@
-# React + Vite
+# 🌌 CricZone Arena — Premium Sports & Turf Booking Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+CricZone Arena is a state-of-the-art, premium single-turf box cricket and sports booking application. The user interface has been redesigned to reflect a dark-themed, cosmic, glassmorphic layout inspired by modern portfolio design trends.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **🌌 Twinkling Canvas Starfield**: The hero background features a dynamic HTML5 Canvas particle system that renders starry constellations and deep space purple gradients.
+- **🧱 Bento Grid Showcase**: Displays turf facilities, location details, spectator galleries, and features in a 12-column masonry grid.
+- **🔁 Service Marquee Slider**: An infinite horizontal auto-scrolling marquee showcasing premium turf amenities.
+- **📅 Dynamic Slots Scheduler**: Users can select dates and choose hourly booking slots. Status displays update to "Booked" immediately upon reservation.
+- **💾 Local-Storage & Supabase Persistence**: Bookings persist automatically in browser storage (`localStorage` fallback) or write directly to a Cloud Database (Supabase) if credentials are added.
+- **💬 Direct Notifications**: Triggers formatted pre-filled reservation receipts which redirect to WhatsApp or launch direct phone calls.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the Oxlint configuration
+- **Framework**: [React 19](https://react.dev/) + [Vite](https://vite.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Database**: [Supabase](https://supabase.com/) & Web LocalStorage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+## 🏃‍♂️ How to Run Locally
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+2. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+3. **Open the browser**:
+   Navigate to `http://localhost:5173/`
+
+---
+
+## 🌐 How to Share Your Local Server (Without Deploying)
+
+### Option A: Local Network Sharing (Same Wi-Fi)
+If you want someone on the same network to view your page, expose the Vite host:
+1. Run:
+   ```bash
+   npm run dev -- --host
+   ```
+2. Open the page using the private network IP:
+   `http://10.49.14.250:5173/`
+
+### Option B: Share Worldwide via a Public Tunnel (localtunnel)
+To let external GitHub viewers access your local server from anywhere in the world, use a free secure tunnel:
+1. Run:
+   ```bash
+   npx localtunnel --port 5173
+   ```
+2. It will generate a public URL (e.g. `https://XXXX.localthrust.me`). Anyone on the internet can click this link to view your live, running local website!
