@@ -1,21 +1,21 @@
-// Sunshine Turf — single-turf cricket booking data
+// CricZone Arena — single-turf cricket booking data
 
 export const TURF_INFO = {
-  name: 'Sunshine Turf',
-  tagline: "Erode's Premier Cricket Experience",
+  name: 'CricZone Arena',
+  tagline: "Your Premium Box Cricket & Turf Experience",
   description:
-    "Experience the finest box cricket in Erode with our state-of-the-art artificial turf, professional-grade floodlights, and top-notch facilities. Whether it's a friendly weekend match or competitive league play, Sunshine Turf delivers an unmatched cricketing experience.",
-  location: 'Gobichettipalayam Road, Erode, Tamil Nadu 638001',
+    "Experience the finest box cricket and football play with our premium grade artificial turf, professional-grade floodlights, and top-notch pavilion facilities. Built for friendly weekend matches, training sessions, and league tournaments, we offer an unmatched sporting experience.",
+  location: '100 Feet Road, Near Sports Club, Erode, Tamil Nadu 638011',
   contact: {
-    phone: '+91 98765 43210',
-    email: 'book@sunshineturf.in',
-    whatsapp: '919876543210',
-    instagram: 'https://instagram.com/sunshineturf',
-    maps: 'https://maps.google.com/?q=Sunshine+Turf+Erode',
+    phone: '+91 99999 88888',
+    email: 'booking@criczonearena.com',
+    whatsapp: '919999988888',
+    instagram: 'https://instagram.com/criczonearena',
+    maps: 'https://maps.google.com/?q=CricZone+Arena',
   },
-  rating: 4.8,
-  totalBookings: 5000,
-  totalPlayers: 12000,
+  rating: 4.9,
+  totalBookings: 3200,
+  totalPlayers: 8500,
 }
 
 export const AMENITIES = [

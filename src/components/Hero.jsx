@@ -81,15 +81,28 @@ export default function Hero() {
       className="relative min-h-[100svh] w-full h-full overflow-hidden"
     >
       {/* ── Cosmic gradient background (Rajesh style) ── */}
-      <div className="fixed bg-gradient-to-b from-purple-950 to-indigo-500 inset-0 z-[-2]">
+      <div className="fixed bg-gradient-to-b from-purple-950 to-indigo-500 inset-0 z-[-3]">
         <Starfield />
       </div>
 
-      {/* Turf image backdrop overlay */}
-      <div className="absolute inset-0 bg-cover bg-center opacity-30 z-[-1]" style={{ backgroundImage: "url('/assets/hero-turf.png')" }} />
+      {/* Background Video (autoplays, muted, loops) with turf image poster fallback */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-[-2] opacity-35"
+        poster="/assets/hero-turf.png"
+      >
+        <source src="https://player.vimeo.com/external/437521800.sd.mp4?s=a23d76819a9d576645ed36a00fea2bbc7469e6c9&profile_id=139&oauth2_token_id=1223210874" type="video/mp4" />
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-cricket-batsman-hitting-a-ball-in-slow-motion-41808-large.mp4" type="video/mp4" />
+      </video>
+
+      {/* Turf image backdrop overlay (as additional fallback layering) */}
+      <div className="absolute inset-0 bg-cover bg-center opacity-10 z-[-1]" style={{ backgroundImage: "url('/assets/hero-turf.png')" }} />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/70 z-0" />
+      <div className="absolute inset-0 bg-black/75 z-0" />
 
       {/* Planet horizon glow (Rajesh signature) */}
       <div className="absolute border-b-4 sm:border-b-6 md:border-b-8 mb-1 sm:mb-2 border-black bottom-0 left-0 right-0 h-40 sm:h-48 md:h-52 lg:h-40 xl:h-32 bg-purple-900 rounded-t-[100%] blur-md z-0" />
@@ -130,7 +143,7 @@ export default function Hero() {
                 className="mx-1.5 sm:mx-2 px-2 sm:px-3 md:px-5 py-0.5 sm:py-1 text-white bg-purple-700 inline-block text-sm sm:text-base md:text-lg lg:text-xl"
                 style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
               >
-                Sunshine Turf
+                {TURF_INFO.name}
               </span>
             </p>
             <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-white/90">

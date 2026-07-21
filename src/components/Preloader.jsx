@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { TURF_INFO } from '../data/mockData'
 
 export default function Preloader() {
   const [show, setShow] = useState(true)
@@ -28,7 +29,7 @@ export default function Preloader() {
             <div className="w-16 h-16 rounded-2xl flex items-center justify-center font-display font-bold text-2xl text-white"
               style={{ background: 'linear-gradient(135deg, #8B5CF6, #7C3AED)' }}
             >
-              ST
+              {TURF_INFO.name.split(' ').map(w => w[0]).join('')}
             </div>
 
             {/* Loading bar */}
@@ -42,7 +43,7 @@ export default function Preloader() {
               />
             </div>
 
-            <span className="text-white/40 text-sm font-medium tracking-widest uppercase">Sunshine Turf</span>
+            <span className="text-white/40 text-sm font-medium tracking-widest uppercase">{TURF_INFO.name}</span>
           </motion.div>
         </motion.div>
       )}

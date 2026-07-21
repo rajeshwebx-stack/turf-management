@@ -101,7 +101,7 @@ export default function BentoGrid() {
             <div className="text-sm text-zinc-400 mb-1">Behind the Scenes</div>
             <div className="flex items-start">
               <div>
-                <h3 className="font-medium text-zinc-200 text-lg">What makes Sunshine Turf special.</h3>
+                <h3 className="font-medium text-zinc-200 text-lg">What makes {TURF_INFO.name} special.</h3>
               </div>
             </div>
             <div className="mt-4 flex-grow relative">
