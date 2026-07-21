@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getNext7Days, generateTimeSlots } from '../data/mockData'
+import { getPersistedBookings } from '../lib/bookingStore'
 import BookingConfirmation from './BookingConfirmation'
 
 const containerVariants = {
@@ -22,10 +23,34 @@ export default function BookingSection() {
   const [selectedSlot, setSelectedSlot] = useState(null)
   const [isPreBooking, setIsPreBooking] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
+  const [persistedBookings, setPersistedBookings] = useState([])
   const scrollRef = useRef(null)
 
   const selectedDay = days.find((d) => d.date === selectedDate)
-  const slots = useMemo(() => generateTimeSlots(selectedDate), [selectedDate])
+
+  // Fetch booked slots from storage on date change
+  useEffect(() => {
+    let active = true
+    async function load() {
+      const booked = await getPersistedBookings(selectedDate)
+      if (active) {
+        setPersistedBookings(booked)
+      }
+    }
+    load()
+    return () => { active = false }
+  }, [selectedDate])
+
+  // Merge mock slots with persistent bookings
+  const slots = useMemo(() => {
+    const baseSlots = generateTimeSlots(selectedDate)
+    return baseSlots.map((slot) => {
+      if (persistedBookings.includes(slot.id)) {
+        return { ...slot, status: 'booked' }
+      }
+      return slot
+    })
+  }, [selectedDate, persistedBookings])
 
   // Reset selected slot when date changes
   useEffect(() => {
@@ -35,6 +60,11 @@ export default function BookingSection() {
   const handleSlotSelect = (slot) => {
     if (slot.status === 'booked') return
     setSelectedSlot(selectedSlot?.id === slot.id ? null : slot)
+  }
+
+  const handleBookingSuccess = (slotId) => {
+    setPersistedBookings((prev) => [...prev, slotId])
+    setSelectedSlot(null)
   }
 
   return (
@@ -301,6 +331,7 @@ export default function BookingSection() {
             date={selectedDate}
             onClose={() => setShowConfirmation(false)}
             isPreBooking={isPreBooking}
+            onSuccess={() => handleBookingSuccess(selectedSlot.id)}
           />
         )}
       </AnimatePresence>
